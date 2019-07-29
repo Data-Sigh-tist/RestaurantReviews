@@ -1,3 +1,4 @@
+console.log('Service Worker: Registered')
 const cacheFiles = [
   '/',
   'index.html',
@@ -6,7 +7,6 @@ const cacheFiles = [
   'js/dbhelper.js',
   'js/main.js',
   'js/restaurant_info.js',
-  'data/restaurants.json',
   'img/1.jpg',
   'img/2.jpg',
   'img/3.jpg',
@@ -21,6 +21,7 @@ const cacheFiles = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open("myCache").then((cache) => {
+      console.log('opened cache');
       return cache.addAll(cacheFiles);
     })
   );
